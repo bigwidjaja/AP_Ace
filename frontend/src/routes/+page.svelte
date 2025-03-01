@@ -1,4 +1,13 @@
-<script>
+
+<!-- start: this is for testing backend to front end-->
+<script> 
+
+    import { goto } from '$app/navigation';
+
+    function navigateToPractice() {
+        goto('/practice');
+    }   
+
     import { onMount } from 'svelte';
     let message = 'Loading...';
     let isConnected = false;
@@ -19,6 +28,7 @@
         console.error("Connection error:", error);
       }
     });
+
   </script>
   
   <div class="container">
@@ -33,7 +43,8 @@
     {/if}
     <p>Message from backend: <strong>{message}</strong></p>
   </div>
-  
+
+
   <style>
     .container {
       max-width: 800px;
@@ -55,4 +66,14 @@
       border-radius: 4px;
       word-break: break-all;
     }
-  </style>
+  </style> 
+
+<!-- end: this is for testing backend to front end-->
+
+[]
+<button 
+  on:click={navigateToPractice}
+  class="bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors"
+>
+  Practice Problems
+</button>
