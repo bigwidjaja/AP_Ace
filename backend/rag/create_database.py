@@ -27,5 +27,20 @@ def split_text(documents: list[Document]):
         add_start_index = True,
         )
     chunks = text_splitter.split_documents(documents)
+    print(f"Split {len(documents)} documents into {len(chunks)} chunks.")
+
+    document = chunks[10]
+    print(documents.page_content)
+    print(documents.metadata)
+
+    return chunks
+
+def save_to_chrome(chunks: list[Document]):
+    if os.path.exists(chroma_path):
+        shutil.rmtree(chroma_path)
+
+    db = Chroma.from_documents(
+            chunks, 
+
 
 
