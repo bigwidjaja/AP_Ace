@@ -9,7 +9,8 @@ import shutil
 chroma_path = "chroma"
 data_path = "books/pdf"
 
-def main():
+def generate_data_store():
+    documents = load_documents()
     
 # Splitting text here
 text_splitter = RecursiveCharacterTextSplitter(
