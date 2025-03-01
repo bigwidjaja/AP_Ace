@@ -12,9 +12,10 @@ def answer_prompt(prompt):
     output = response_json["response"].split("</think>")
     return output[-1]
 
-url = "http://127.0.0.1:11434/api/generate"
-prompt = input()
-print(answer_prompt(prompt))
+if __name__ == '__main__':
+    url = "http://127.0.0.1:11434/api/generate"
+    prompt = input()
+    print(answer_prompt(prompt))
 
 
 
