@@ -5,8 +5,6 @@ from langchain_community.vectorstores import Chroma
 from langchain_community.embeddings import OllamaEmbeddings
 import os
 import shutil
-import fitz  
-from pdfminer.high_level import extract_text
 
 chroma_path = "chroma"
 data_path = "data/pdf"
