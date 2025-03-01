@@ -7,7 +7,7 @@ import os
 import shutil
 
 chroma_path = "chroma"
-data_path = "data/pdf"
+data_path = "data/pdfs"
 
 def generate_data_store():
     documents = load_documents()
