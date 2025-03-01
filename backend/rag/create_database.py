@@ -35,12 +35,6 @@ def split_text(documents: list[Document]):
 
     return chunks
 
-def save_to_chrome(chunks: list[Document]):
-    if os.path.exists(chroma_path):
-        shutil.rmtree(chroma_path)
-
-    db = Chroma.from_documents(
-            chunks, 
 
 
 
