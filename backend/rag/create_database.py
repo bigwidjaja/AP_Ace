@@ -43,7 +43,7 @@ print(markdown_text)
 '''
 
 
-
+'''
 def generate_data_store():
     documents = load_documents()
     chunks = split_text(documents)
@@ -69,6 +69,13 @@ def split_text(documents: list[Document]):
     print(documents.metadata)
 
     return chunks
+    '''
+
+if __name__ == '__main__':
+    pdf_text = extract_pdf_text("apUSGovfrq.pdf")
+    markdown_text = text_to_markdown(pdf_text)
+    print(markdown_text)
+
 
 
 
