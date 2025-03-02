@@ -1,9 +1,10 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from create_database import generate_data_store
+import read_file
 
 app = Flask(__name__)
-CORS(app)  # Enable CORS for all routes
+CORS(app) 
 
 @app.route('/')
 def home():
@@ -18,15 +19,13 @@ def hello():
 @app.route('/api/getClass', methods=['POST'])
 def getClass():
     userClass = request.json
-    print(userClass)
-
     class_name = userClass[0]
-    unit_name = userClass[1]
+    unit_name = userClass[1] 
     print(f"Class Name: {class_name}, Unit Name: {unit_name}")
-
+    
     try:
-        num_chunks = generate_data_store()
-        return jsonify({"message": "Data processed successfully", "chunks_saved": num_chunks}), 200
+        read_file.process_class(class_name) 
+        return jsonify({"message": "Data processed successfully"}), 200
     except Exception as error:
         return jsonify({"error": str(error)}), 500
     

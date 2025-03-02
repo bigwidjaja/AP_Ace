@@ -1,9 +1,9 @@
-import fitz  
+import fitz
 import os
 from pathlib import Path
-from testapp import getClass
 
 def extract_pdf_text(pdf_path):
+    """Extracts text from a PDF file."""
     with fitz.open(pdf_path) as doc:
         text = ""
         for page in doc:
@@ -11,13 +11,14 @@ def extract_pdf_text(pdf_path):
     return text
 
 def text_to_markdown(text):
+    """Converts extracted text to markdown format."""
     lines = text.splitlines()
     markdown = ""
     for line in lines:
         line = line.strip()
         if not line:
             continue
-        if line.startswith(" " * 4): 
+        if line.startswith(" " * 4):
             markdown += f"- {line.strip()}\n"
         elif line.isupper() and len(line) < 50:
             markdown += f"# {line}\n"
@@ -26,15 +27,17 @@ def text_to_markdown(text):
     return markdown
 
 def find_file(filename, search_path):
+    """Recursively searches for the file in the given directory."""
     search_path = Path(search_path)
-    for file in search_path.rglob(filename):  # Recursively search for the file
+    for file in search_path.rglob(filename):
         return file
-    return None  # Return None if file is not found
+    return None
 
-if __name__ == '__main__':
+def process_class(class_name):
     pdf_directory = "pdfs"
-    class_name = getClass.class_name 
-    file_string = class_name.lower().split() 
+
+    # Convert class name to PDF-friendly string (e.g., "AP Calculus AB" -> "apcalculusab.pdf")
+    file_string = class_name.lower().replace(" ", "") + ".pdf"
     
     file_path = find_file(file_string, pdf_directory)
     
@@ -45,13 +48,11 @@ if __name__ == '__main__':
             markdown_text = text_to_markdown(pdf_text)
         except Exception as error:
             print(f"Error processing PDF: {error}")
-            exit()
+            raise
 
-        # Write to markdown file
         with open('sample.md', 'w') as f:
             f.write(markdown_text)
 
-        # Move markdown file to desired directory
         directory_path = os.path.expanduser("~/ap_ace/backend/rag/markdown_directory")
         os.makedirs(directory_path, exist_ok=True)
         os.replace("sample.md", os.path.join(directory_path, "sample.md"))
@@ -59,4 +60,3 @@ if __name__ == '__main__':
         print(markdown_text)
     else:
         print("File not found.")
-
