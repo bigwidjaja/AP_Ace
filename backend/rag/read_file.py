@@ -1,5 +1,5 @@
 import fitz  
-
+import os
 
 def extract_pdf_text(pdf_path):
     with fitz.open(pdf_path) as doc:
@@ -27,6 +27,15 @@ def text_to_markdown(text):
 if __name__ == '__main__':
     pdf_text = extract_pdf_text("pdfs/apUSGovfrq.pdf")
     markdown_text = text_to_markdown(pdf_text)
+
+    with open('sample.md', 'w') as f:
+        f.write(markdown_text)
+
+directory_path = os.path.expanduser("~/rag/markdown_directory")  # Store in home directory
+os.makedirs(directory_path, exist_ok=True)
+os.replace("sample.md", os.path.join(directory_path, "sample.md"))
+
+
     
     print(markdown_text)
 
