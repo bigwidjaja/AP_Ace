@@ -1,28 +1,17 @@
-<script>
 
-</script>
+ <!-- Get Started button -->
+ <div class="flex justify-center mt-16">
+     <a href="/practice" class="px-6 py-3 text-lg font-medium rounded-lg bg-white bg-opacity-20 text-white border border-white hover:bg-opacity-30 transition-all duration-300">
+       Get Started
+     </a>
+   </div>
+   <style global>
+   body {
+     margin: 0px;
+     font-family: "Instrument Serif";
+   }
+   .white-text {
+     color: #FFFFFF;
+   }
+   </style>
 
-<body class="bg-[url('/gradient.jpg')] bg-fixed bg-cover w-full m-0 p-0 bg-no-repeat">
-     <p class='text-white'> Skibidi </p>
-</body> 
-
-<!--top left-->
-<div class="relative">
-     <img
-         src="/acorn.png"
-         alt="Acorn Logo"
-         class="absolute top-[-35px] left-[40px] object-contain"
-         style="width: 60px; height: 60px; max-width: 100px; max-height: 100px;"
-     >  
-     <span class="text-[30px] text-red-700 font-bold font-instrument-serif ml-[100px] relative top-[-10px]">ACE</span>
- </div> 
-
- 
-<!-- -->
-
-<style global>
-     body {
-          margin: 0px;
-          font-family: "Instrument Serif";
-     }
-</style>
