@@ -1,8 +1,9 @@
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-from langchain_community.document_loaders import DirectoryLoader
+from langchain_community.document_loaders import TextLoader
 from langchain.schema import Document
 from langchain_community.vectorstores import Chroma
 from langchain_community.embeddings import OllamaEmbeddings
+from pathlib import Path
 import os
 import shutil
 
@@ -16,8 +17,10 @@ def generate_data_store():
     save_to_chroma(chunks)
 
 def load_documents():
-    loader = DirectoryLoader(data_path, glob='*.md')
-    documents = loader.load()
+    documents = []
+    for file_path in Path(data_path).rglob("*.md"):
+        loader = TextLoader(file_path=str(file_path))
+        documents.extend(loader.load())
     print(documents)
     return documents
 
