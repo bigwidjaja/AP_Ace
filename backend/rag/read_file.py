@@ -35,7 +35,5 @@ directory_path = os.path.expanduser("~/ap_ace/backend/rag/markdown_directory")  
 os.makedirs(directory_path, exist_ok=True)
 os.replace("sample.md", os.path.join(directory_path, "sample.md"))
 
-
-    
 print(markdown_text)
 

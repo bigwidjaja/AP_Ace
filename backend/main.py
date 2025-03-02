@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
+from rag import create_database
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
@@ -18,7 +19,13 @@ def hello():
 def getClass():
     userClass = request.json
     print(userClass)
-    return jsonify("Good")
+
+    try:
+        num_chunks = create_database.generate_data_store()
+        return jsonify({"message": "Data processed successfully", "chunks_saved": num_chunks}), 200
+    except Exception as error:
+        return jsonify({"error": str(error)}), 500
+    
 
 if __name__ == '__main__':
     print("Starting Flask server on http://localhost:5001")
