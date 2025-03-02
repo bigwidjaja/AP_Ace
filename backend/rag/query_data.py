@@ -1,4 +1,5 @@
 import argparse
+import ollama
 from langchain_community.vectorstores import Chroma
 from langchain_openai import OpenAIEmbeddings
 from langchain_openai import ChatOpenAI
@@ -15,14 +16,17 @@ Answer the question based on the following context
 
 Answer the question based on the above context {question}
 """
-
+class OllamaEmbeddings:
+    def embed_query(self, text):
+        response = ollama.embeddings(model="deepseek-r1:7b", prompt=text)
+        return response["embedding"]
 def main():
-    parser = argparse.ArguementParser()
-    parser.add_arguement("query_text", type = str, help = "The query text.")
+    parser = argparse.ArgumentParser()
+    parser.add_argument("query_text", type = str, help = "The query text.")
     args = parser.parse_args()
     query_text = args.query_text
 
-    embedding_function = OpenAIEmbeddings()
+    embedding_function = OllamaEmbeddings()
     db = Chroma(persist_directory=CHROMA_PATH, embedding_function = embedding_function)
 
     results = db.similarity_search_with_relevance_scores(query_text, k=5)
