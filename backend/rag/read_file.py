@@ -1,5 +1,5 @@
 import fitz  
-from pdfminer.high_level import extract_text
+
 
 def extract_pdf_text(pdf_path):
     with fitz.open(pdf_path) as doc:
