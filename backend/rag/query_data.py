@@ -26,7 +26,7 @@ Practice problems:
 
 def answer_prompt(prompt):
     data = { 
-            "model": "deepseek-r1:7b",
+            "model": "deepseek-r1:1.5b",
             "prompt": prompt,
             "stream": False }
 
@@ -40,7 +40,7 @@ def main():
     args = parser.parse_args()
     query_text = args.query_text'''
 
-    embedding_function = OllamaEmbeddings(model="deepseek-r1:7b")
+    embedding_function = OllamaEmbeddings(model="deepseek-r1:1.5b")
     query_text = "derivative of sin(x)"
     query_embedding = embedding_function.embed_query(query_text)
     print("Query Embedding (first 10 values):", query_embedding[:10])

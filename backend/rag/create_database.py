@@ -44,7 +44,7 @@ def save_to_chroma(chunks: list[Document]):
     if os.path.exists(chroma_path):
         shutil.rmtree(chroma_path)
 
-    embeddings = OllamaEmbeddings(model="deepseek-r1:7b")
+    embeddings = OllamaEmbeddings(model="deepseek-r1:1.5b")
     db = Chroma.from_documents(
         chunks, embeddings, persist_directory=chroma_path
     )
