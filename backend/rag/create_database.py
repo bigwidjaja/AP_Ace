@@ -7,7 +7,7 @@ import os
 import shutil
 
 chroma_path = "chroma"
-data_path = "~/ap_ace/backend/rag/markdown_directory"
+data_path = os.path.expanduser("~/ap_ace/backend/rag/markdown_directory")
 
 
 def generate_data_store():
