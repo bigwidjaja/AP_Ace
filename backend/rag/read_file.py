@@ -27,4 +27,6 @@ def text_to_markdown(text):
 if __name__ == '__main__':
     pdf_text = extract_pdf_text("pdfs/apUSGovfrq.pdf")
     markdown_text = text_to_markdown(pdf_text)
+    
     print(markdown_text)
+
