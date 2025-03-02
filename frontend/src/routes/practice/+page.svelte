@@ -96,15 +96,12 @@
       units = selectedClass.units;
   }
 
-  function handleGenerateProblems() {
-      if (!selectedUnit) return;
-      isGenerating = true;
-      // Here we would eventually call the API to generate problems
-      console.log(`Generating problems for ${selectedClass.name}, ${selectedUnit.name}`);
-      // Simulate API call completion
-      setTimeout(() => {
-          isGenerating = false;
-      }, 1000);
+    async function handleGenerateProblems() {
+        const userData = await fetch("http://localhost:5001/api/getClass", {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify([selectedClass.name, selectedUnit.name])
+        });
   }
 </script>
 

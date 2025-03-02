@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, request, jsonify
 from flask_cors import CORS
 
 app = Flask(__name__)
@@ -13,6 +13,12 @@ def home():
 def hello():
     print("API hello route accessed!")
     return jsonify({"message": "Hello from Flask!"})
+
+@app.route('/api/getClass', methods=['POST'])
+def getClass():
+    userClass = request.json
+    print(userClass)
+    return jsonify("Good")
 
 if __name__ == '__main__':
     print("Starting Flask server on http://localhost:5001")
