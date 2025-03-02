@@ -31,11 +31,11 @@ if __name__ == '__main__':
     with open('sample.md', 'w') as f:
         f.write(markdown_text)
 
-directory_path = os.path.expanduser("~/rag/markdown_directory")  # Store in home directory
+directory_path = os.path.expanduser("~/ap_ace/backend/rag/markdown_directory")  # Store in home directory
 os.makedirs(directory_path, exist_ok=True)
 os.replace("sample.md", os.path.join(directory_path, "sample.md"))
 
 
     
-    print(markdown_text)
+print(markdown_text)
 
