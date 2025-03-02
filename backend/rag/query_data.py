@@ -1,3 +1,4 @@
+from flask import Flask, request
 import argparse
 import requests
 from langchain_chroma import Chroma
@@ -6,6 +7,9 @@ from langchain_ollama import OllamaEmbeddings
 
 CHROMA_PATH = "chroma"
 API_URL = "http://127.0.0.1:11434/api/generate"
+
+
+@app.route("/api")
 
 PROMPT_TEMPLATE = """
 Generate three practice problems based on the following context. 
