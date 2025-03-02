@@ -9,6 +9,7 @@ import shutil
 chroma_path = "chroma"
 data_path = "~/ap_ace/backend/rag/markdown_directory"
 
+
 def generate_data_store():
     documents = load_documents()
     chunks = split_text(documents)
@@ -17,6 +18,7 @@ def generate_data_store():
 def load_documents():
     loader = DirectoryLoader(data_path, glob='*.md')
     documents = loader.load()
+    print(documents)
     return documents
 
 def split_text(documents: list[Document]):
@@ -48,4 +50,7 @@ def save_to_chroma(chunks: list[Document]):
 
 def main():
     generate_data_store()
+
+if __name__ == "__main__":
+    main()
 
