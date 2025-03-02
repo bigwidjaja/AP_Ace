@@ -35,7 +35,7 @@ def getClass():
     
 
 if __name__ == '__main__':
-    subprocess.run(["python3", "readfile.py"])
+    subprocess.run(["python3", "read_file.py"])
     subprocess.run(["python3", "create_database.py"])
     subprocess.run(["python3", "query_data.py"])
     print("Starting Flask server on http://localhost:5001")
