@@ -23,10 +23,6 @@ def text_to_markdown(text):
             markdown += line + "\n"
     return markdown
 
-def get_material_info():
-    url = "localhost:5001"
-    driver.get(url)
-
 if __name__ == '__main__':
     pdf_text = extract_pdf_text("pdfs/apUSGovfrq.pdf")
     markdown_text = text_to_markdown(pdf_text)
