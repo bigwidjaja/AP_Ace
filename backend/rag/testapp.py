@@ -29,10 +29,6 @@ def getClass():
         return jsonify({"message": "Data processed successfully"}), 200
     except Exception as error:
         return jsonify({"error": str(error)}), 500
-    
-
-
-    
 
 if __name__ == '__main__':
     subprocess.run(["python3", "read_file.py"])
@@ -40,5 +36,3 @@ if __name__ == '__main__':
     subprocess.run(["python3", "query_data.py"])
     print("Starting Flask server on http://localhost:5001")
     app.run(debug=True, host='0.0.0.0', port=5001)
-
-    
