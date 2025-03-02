@@ -17,11 +17,11 @@ def hello():
     print("API hello route accessed!")
     return jsonify({"message": "Hello from Flask!"})
 
-@app.route('/api/getClass', methods=['POST'])
+@app.route('/api/getClass', methods=['GET', 'POST'])
 def getClass():
     userClass = request.json
     class_name = userClass[0]
-    unit_name = userClass[1] 
+    unit_name = userClass[1]
     print(f"Class Name: {class_name}, Unit Name: {unit_name}")
     
     try:
