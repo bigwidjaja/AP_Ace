@@ -3,8 +3,7 @@ import ollama
 from langchain_chroma import Chroma
 from langchain.prompts import ChatPromptTemplate
 from langchain_ollama import OllamaEmbeddings
-import create_database
-import read_file
+
 
 CHROMA_PATH = "chroma"
 

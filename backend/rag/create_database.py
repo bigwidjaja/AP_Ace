@@ -7,7 +7,7 @@ import os
 import shutil
 
 chroma_path = "chroma"
-data_path = "data/pdfs"
+data_path = "~/ap_ace/backend/rag/markdown_directory"
 
 def generate_data_store():
     documents = load_documents()
