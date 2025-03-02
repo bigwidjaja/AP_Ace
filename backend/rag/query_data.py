@@ -9,12 +9,12 @@ CHROMA_PATH = "chroma"
 API_URL = "http://127.0.0.1:11434/api/generate"
 
 
-@app.route("/api")
+#@app.route("/api")
 
 PROMPT_TEMPLATE = """
 Generate three practice problems based on the following context. 
 Ensure they are clear, relevant, and progressively challenging. Note. DONT SOLVE THESE PROBLEMS.
-ONLY CREATE NEW ONES BASED ON THESE ONES.
+ONLY CREATE NEW ONES BASED ON THESE ONES. Between each section of your final response ad "-----"
 
 
 {context}
